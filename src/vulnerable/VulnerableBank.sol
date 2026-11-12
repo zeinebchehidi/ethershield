@@ -14,7 +14,7 @@ contract VulnerableBank {
         require(amount > 0, "Solde nul");
 
         // BUG : l'ether est envoyé AVANT la mise à jour du solde
-        (bool ok, ) = msg.sender.call{value: amount}("");
+        (bool ok,) = msg.sender.call{value: amount}("");
         require(ok, "Transfert echoue");
 
         balances[msg.sender] = 0;

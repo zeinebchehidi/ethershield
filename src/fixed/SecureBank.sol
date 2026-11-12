@@ -17,7 +17,7 @@ contract SecureBank is ReentrancyGuard {
         // Checks-Effects-Interactions : on met à jour AVANT d'envoyer
         balances[msg.sender] = 0;
 
-        (bool ok, ) = msg.sender.call{value: amount}("");
+        (bool ok,) = msg.sender.call{value: amount}("");
         require(ok, "Transfert echoue");
     }
 }
