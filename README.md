@@ -44,7 +44,7 @@ forge test
 
 | Faille | Contrat vulnérable | Test d'exploit | Correction | Statut |
 |---|---|---|---|---|
-| Reentrancy | ❌ | ❌ | ❌ | À faire |
+| Reentrancy | ✅ | ✅ | ✅ | Terminé |
 | Access Control | ❌ | ❌ | ❌ | À faire |
 | tx.origin | ❌ | ❌ | ❌ | À faire |
 | Signature Replay | ❌ | ❌ | ❌ | À faire |
