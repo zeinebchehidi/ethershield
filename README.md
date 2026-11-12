@@ -1,66 +1,50 @@
-## Foundry
+# EtherShield
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Laboratoire de sécurité Ethereum : développer, auditer, exploiter de manière contrôlée et corriger des smart contracts Solidity.
 
-Foundry consists of:
+> ⚠️ **Projet pédagogique.** Les contrats du dossier `src/vulnerable/` sont volontairement vulnérables. Ne pas les déployer sur un réseau public ni avec de vrais fonds. Toutes les expérimentations se font sur un réseau local (Anvil) avec des comptes fictifs.
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Équipe
 
-## Documentation
+- [Nom 1]
+- [Nom 2]
 
-https://book.getfoundry.sh/
+## Outils
 
-## Usage
+- Anvil / Forge (Foundry) : blockchain locale et tests
+- Slither : analyse statique
+- OpenZeppelin : mécanismes de protection
+- Solidity
 
-### Build
+## Lancer le projet
 
-```shell
-$ forge build
+```bash
+# Terminal 1 : blockchain locale
+anvil
+
+# Terminal 2 : compilation et tests
+forge build
+forge test
 ```
 
-### Test
+## Structure du dépôt
 
-```shell
-$ forge test
-```
+| Dossier | Contenu |
+|---|---|
+| `src/vulnerable/` | Contrats volontairement vulnérables |
+| `src/fixed/` | Versions corrigées |
+| `test/` | Tests d'exploitation et de non-régression |
+| `script/` | Scripts de déploiement local |
+| `reports/` | Rapports Slither et rapport d'audit |
+| `docs/` | Documentation de reproduction |
 
-### Format
+## Avancement
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+| Faille | Contrat vulnérable | Test d'exploit | Correction | Statut |
+|---|---|---|---|---|
+| Reentrancy | ❌ | ❌ | ❌ | À faire |
+| Access Control | ❌ | ❌ | ❌ | À faire |
+| tx.origin | ❌ | ❌ | ❌ | À faire |
+| Signature Replay | ❌ | ❌ | ❌ | À faire |
+| Front-running / MEV | ❌ | ❌ | ❌ | À faire |
+| Denial of Service | ❌ | ❌ | ❌ | À faire |
