@@ -6,8 +6,10 @@ Laboratoire de sécurité Ethereum : développer, auditer, exploiter de manière
 
 ## Équipe
 
-- [Nom 1]
-- [Nom 2]
+- Zeineb chehidi
+- Zeineb cheffi
+- Koutouf chaabani
+- Chayma bouattour
 
 ## Outils
 
