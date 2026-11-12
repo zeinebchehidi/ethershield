@@ -4,16 +4,16 @@ Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest p
 'forge build --build-info --deny never src/vulnerable/VulnerableAdminBank.sol' running (wd: /home/linux/ethershield)
 INFO:Detectors:
 Detector: arbitrary-send-eth
-VulnerableAdminBank.emergencyWithdraw() (src/vulnerable/VulnerableAdminBank.sol#35-38) sends eth to arbitrary user
+VulnerableAdminBank.emergencyWithdraw() (src/vulnerable/VulnerableAdminBank.sol#46-49) sends eth to arbitrary user
 	Dangerous calls:
-	- (ok,None) = msg.sender.call{value: address(this).balance}() (src/vulnerable/VulnerableAdminBank.sol#36)
+	- (ok,None) = msg.sender.call{value: address(this).balance}() (src/vulnerable/VulnerableAdminBank.sol#47)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
 INFO:Detectors:
 Detector: missing-zero-check
 VulnerableAdminBank.setFeeRecipient(address).r (src/vulnerable/VulnerableAdminBank.sol#30) lacks a zero-check on :
-		- feeRecipient = r (src/vulnerable/VulnerableAdminBank.sol#30)
-VulnerableAdminBank.transferOwnership(address).n (src/vulnerable/VulnerableAdminBank.sol#33) lacks a zero-check on :
-		- owner = n (src/vulnerable/VulnerableAdminBank.sol#33)
+		- feeRecipient = r (src/vulnerable/VulnerableAdminBank.sol#31)
+VulnerableAdminBank.transferOwnership(address).n (src/vulnerable/VulnerableAdminBank.sol#42) lacks a zero-check on :
+		- owner = n (src/vulnerable/VulnerableAdminBank.sol#43)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
 INFO:Detectors:
 Detector: solc-version
@@ -28,7 +28,7 @@ INFO:Detectors:
 Detector: low-level-calls
 Low level call in VulnerableAdminBank.withdraw(uint256) (src/vulnerable/VulnerableAdminBank.sol#22-27):
 	- (ok,None) = msg.sender.call{value: amount}() (src/vulnerable/VulnerableAdminBank.sol#25)
-Low level call in VulnerableAdminBank.emergencyWithdraw() (src/vulnerable/VulnerableAdminBank.sol#35-38):
-	- (ok,None) = msg.sender.call{value: address(this).balance}() (src/vulnerable/VulnerableAdminBank.sol#36)
+Low level call in VulnerableAdminBank.emergencyWithdraw() (src/vulnerable/VulnerableAdminBank.sol#46-49):
+	- (ok,None) = msg.sender.call{value: address(this).balance}() (src/vulnerable/VulnerableAdminBank.sol#47)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
 INFO:Slither:src/vulnerable/VulnerableAdminBank.sol analyzed (1 contracts with 102 detectors), 6 result(s) found
