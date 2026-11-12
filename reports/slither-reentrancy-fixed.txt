@@ -1,0 +1,10 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/linux/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/fixed/SecureBank.sol' running (wd: /home/linux/ethershield)
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in SecureBank.withdraw() (src/fixed/SecureBank.sol#13-22):
+	- (ok,None) = msg.sender.call{value: amount}() (src/fixed/SecureBank.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/fixed/SecureBank.sol analyzed (3 contracts with 102 detectors), 1 result(s) found

@@ -1,0 +1,31 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/linux/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/vulnerable/VulnerableBank.sol' running (wd: /home/linux/ethershield)
+INFO:Detectors:
+Detector: reentrancy-eth
+Reentrancy in VulnerableBank.withdraw() (src/vulnerable/VulnerableBank.sol#12-21):
+	External calls:
+	- (ok,None) = msg.sender.call{value: amount}() (src/vulnerable/VulnerableBank.sol#17)
+	State variables written after the call(s):
+	- balances[msg.sender] = 0 (src/vulnerable/VulnerableBank.sol#20)
+	VulnerableBank.balances (src/vulnerable/VulnerableBank.sol#6) can be used in cross function reentrancies:
+	- VulnerableBank.balances (src/vulnerable/VulnerableBank.sol#6)
+	- VulnerableBank.deposit() (src/vulnerable/VulnerableBank.sol#8-10)
+	- VulnerableBank.withdraw() (src/vulnerable/VulnerableBank.sol#12-21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+Detector: solc-version
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (src/vulnerable/VulnerableBank.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in VulnerableBank.withdraw() (src/vulnerable/VulnerableBank.sol#12-21):
+	- (ok,None) = msg.sender.call{value: amount}() (src/vulnerable/VulnerableBank.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/vulnerable/VulnerableBank.sol analyzed (1 contracts with 102 detectors), 3 result(s) found
