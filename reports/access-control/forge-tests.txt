@@ -1,0 +1,44 @@
+No files changed, compilation skipped
+
+Ran 4 tests for test/BrokenAccessControl.t.sol:BrokenAccessControlExploitTest
+[PASS] test_Exploit_FreezeBank() (gas: 81908)
+[PASS] test_Exploit_RedirectFees() (gas: 78743)
+[PASS] test_Exploit_StealAllFunds() (gas: 39422)
+[PASS] test_Exploit_TakeOwnership() (gas: 43217)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 8.46ms (594.19µs CPU time)
+
+Ran 8 tests for test/BrokenAccessControl.t.sol:BrokenAccessControlFixedTest
+[PASS] invariant_FeeBelowCap() (runs: 256, calls: 128000, reverts: 112663)
+
+╭-----------------+-----------------+-------+---------+----------╮
+| Contract        | Selector        | Calls | Reverts | Discards |
++================================================================+
+| SecureAdminBank | deposit         | 14181 | 26      | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | grantRole       | 14348 | 14266   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | pause           | 14225 | 14221   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | renounceRole    | 14108 | 14085   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | revokeRole      | 14093 | 14010   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | setFeeBps       | 14147 | 14122   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | setFeeRecipient | 14273 | 14169   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | unpause         | 14180 | 14087   | 0        |
+|-----------------+-----------------+-------+---------+----------|
+| SecureAdminBank | withdraw        | 14445 | 13677   | 0        |
+╰-----------------+-----------------+-------+---------+----------╯
+
+[PASS] testFuzz_OnlyAdminSetsFee(address,uint256) (runs: 256, μ: 36407, ~: 36349)
+[PASS] test_Fixed_AdminCannotExceedFeeCap() (gas: 35731)
+[PASS] test_Fixed_AttackerCannotPause() (gas: 43582)
+[PASS] test_Fixed_AttackerCannotRedirectFees() (gas: 44608)
+[PASS] test_Fixed_AttackerCannotSetFee() (gas: 44200)
+[PASS] test_Fixed_PauserCannotUnpause() (gas: 94322)
+[PASS] test_Fixed_UserKeepsFunds() (gas: 42526)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 1.40s (1.39s CPU time)
+
+Ran 2 test suites in 1.41s (1.40s CPU time): 12 tests passed, 0 failed, 0 skipped (12 total tests)
