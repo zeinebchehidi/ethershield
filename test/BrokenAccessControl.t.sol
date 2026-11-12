@@ -65,8 +65,7 @@ contract BrokenAccessControlFixedTest is Test {
     }
 
     function _expectUnauthorized(address who, bytes32 role) internal {
-        vm.expectRevert(abi.encodeWithSelector(
-            IAccessControl.AccessControlUnauthorizedAccount.selector, who, role));
+        vm.expectRevert(abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, who, role));
     }
 
     function test_Fixed_AttackerCannotSetFee() public {

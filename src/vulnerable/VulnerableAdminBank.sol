@@ -22,18 +22,29 @@ contract VulnerableAdminBank {
     function withdraw(uint256 amount) external {
         require(!paused, "paused");
         balances[msg.sender] -= amount;
-        (bool ok, ) = msg.sender.call{value: amount}("");
+        (bool ok,) = msg.sender.call{value: amount}("");
         require(ok, "transfer failed");
     }
 
     // ❌ Aucune vérification de msg.sender sur les fonctions suivantes
-    function setFeeRecipient(address r) external { feeRecipient = r; }
-    function setFeeBps(uint256 b) external { feeBps = b; }
-    function pause() external { paused = true; }
-    function transferOwnership(address n) external { owner = n; }
+    function setFeeRecipient(address r) external {
+        feeRecipient = r;
+    }
+
+    function setFeeBps(uint256 b) external {
+        feeBps = b;
+    }
+
+    function pause() external {
+        paused = true;
+    }
+
+    function transferOwnership(address n) external {
+        owner = n;
+    }
 
     function emergencyWithdraw() external {
-        (bool ok, ) = msg.sender.call{value: address(this).balance}("");
+        (bool ok,) = msg.sender.call{value: address(this).balance}("");
         require(ok, "transfer failed");
     }
 }

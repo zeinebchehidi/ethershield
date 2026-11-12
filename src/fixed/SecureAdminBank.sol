@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract SecureAdminBank is AccessControl {
-    bytes32 public constant ADMIN_ROLE  = keccak256("ADMIN_ROLE");
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     uint256 public constant MAX_FEE_BPS = 1_000; // plafond 10 %
 
@@ -33,7 +33,7 @@ contract SecureAdminBank is AccessControl {
     function withdraw(uint256 amount) external {
         require(!paused, "paused");
         balances[msg.sender] -= amount;
-        (bool ok, ) = msg.sender.call{value: amount}("");
+        (bool ok,) = msg.sender.call{value: amount}("");
         require(ok, "transfer failed");
     }
 
@@ -49,8 +49,15 @@ contract SecureAdminBank is AccessControl {
         emit FeeBpsChanged(b);
     }
 
-    function pause() external onlyRole(PAUSER_ROLE) { paused = true; emit PausedChanged(true); }
-    function unpause() external onlyRole(ADMIN_ROLE) { paused = false; emit PausedChanged(false); }
+    function pause() external onlyRole(PAUSER_ROLE) {
+        paused = true;
+        emit PausedChanged(true);
+    }
+
+    function unpause() external onlyRole(ADMIN_ROLE) {
+        paused = false;
+        emit PausedChanged(false);
+    }
 
     // emergencyWithdraw et transferOwnership supprimées :
     // les fonds ne sortent que par withdraw(), les droits se gèrent via grantRole/revokeRole
