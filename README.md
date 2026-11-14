@@ -46,7 +46,7 @@ forge test
 |---|---|---|---|---|
 | Reentrancy | ✅ | ✅ | ✅ | Terminé |
 | Access Control | ✅ | ✅ | ✅ | Terminé  |
-| tx.origin | ❌ | ❌ | ❌ | À faire |
+| tx.origin | ✅ | ✅ | ✅ | Terminé |
 | Signature Replay | ❌ | ❌ | ❌ | À faire |
 | Front-running / MEV | ❌ | ❌ | ❌ | À faire |
 | Denial of Service | ✅ | ✅ | ✅ | Terminé |
