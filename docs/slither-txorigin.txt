@@ -1,0 +1,29 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/dell/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/vulnerable/TxOriginWallet.sol' running (wd: /home/dell/ethershield)
+INFO:Detectors:
+Detector: arbitrary-send-eth
+TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16) sends eth to arbitrary user
+	Dangerous calls:
+	- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+Detector: tx-origin
+TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,not owner) (src/vulnerable/TxOriginWallet.sol#13)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+INFO:Detectors:
+Detector: missing-zero-check
+TxOriginWallet.transferTo(address,uint256).to (src/vulnerable/TxOriginWallet.sol#12) lacks a zero-check on :
+		- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16):
+	- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Detector: immutable-states
+TxOriginWallet.owner (src/vulnerable/TxOriginWallet.sol#6) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:src/vulnerable/TxOriginWallet.sol analyzed (1 contracts with 102 detectors), 5 result(s) found

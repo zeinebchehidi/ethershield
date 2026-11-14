@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/fixed/TxOriginFixed.t.sol:TxOriginFixedTest
+[PASS] test_OwnerCanStillTransfer() (gas: 72772)
+[PASS] test_ProtectionHolds_PhishingBlocked() (gas: 49192)
+[PASS] test_ZeroAddressRejected() (gas: 36257)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.65ms (815.62µs CPU time)
+
+Ran 1 test suite in 9.92ms (1.65ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

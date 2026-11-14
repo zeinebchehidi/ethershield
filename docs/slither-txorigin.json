@@ -1,0 +1,653 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transferTo",
+            "source_mapping": {
+              "start": 237,
+              "length": 226,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "TxOriginWallet",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 383,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "transferTo(address,uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 376,
+              "length": 40,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                14
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferTo",
+                "source_mapping": {
+                  "start": 237,
+                  "length": 226,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "TxOriginWallet",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 383,
+                      "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                      "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferTo(address,uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16) sends eth to arbitrary user\n\tDangerous calls:\n\t- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)\n",
+        "markdown": "[TxOriginWallet.transferTo(address,uint256)](src/vulnerable/TxOriginWallet.sol#L12-L16) sends eth to arbitrary user\n\tDangerous calls:\n\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/TxOriginWallet.sol#L14)\n",
+        "first_markdown_element": "src/vulnerable/TxOriginWallet.sol#L12-L16",
+        "id": "192aa8dab5040d12564cf91afe740aa5402106ecfc1c58efedb73c6da6460df6",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transferTo",
+            "source_mapping": {
+              "start": 237,
+              "length": 226,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "TxOriginWallet",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 383,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "transferTo(address,uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool,string)(tx.origin == owner,not owner)",
+            "source_mapping": {
+              "start": 312,
+              "length": 40,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                13
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferTo",
+                "source_mapping": {
+                  "start": 237,
+                  "length": 226,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "TxOriginWallet",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 383,
+                      "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                      "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferTo(address,uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,not owner) (src/vulnerable/TxOriginWallet.sol#13)\n",
+        "markdown": "[TxOriginWallet.transferTo(address,uint256)](src/vulnerable/TxOriginWallet.sol#L12-L16) uses tx.origin for authorization: [require(bool,string)(tx.origin == owner,not owner)](src/vulnerable/TxOriginWallet.sol#L13)\n",
+        "first_markdown_element": "src/vulnerable/TxOriginWallet.sol#L12-L16",
+        "id": "5e7ee41f8ee4fdc38440482307a9ea40266b80300732a68b06d554afe7d6e56a",
+        "check": "tx-origin",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "to",
+            "source_mapping": {
+              "start": 257,
+              "length": 18,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 25,
+              "ending_column": 43
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferTo",
+                "source_mapping": {
+                  "start": 237,
+                  "length": 226,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "TxOriginWallet",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 383,
+                      "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                      "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferTo(address,uint256)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 376,
+              "length": 40,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                14
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferTo",
+                "source_mapping": {
+                  "start": 237,
+                  "length": 226,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "TxOriginWallet",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 383,
+                      "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                      "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferTo(address,uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "TxOriginWallet.transferTo(address,uint256).to (src/vulnerable/TxOriginWallet.sol#12) lacks a zero-check on :\n\t\t- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)\n",
+        "markdown": "[TxOriginWallet.transferTo(address,uint256).to](src/vulnerable/TxOriginWallet.sol#L12) lacks a zero-check on :\n\t\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/TxOriginWallet.sol#L14)\n",
+        "first_markdown_element": "src/vulnerable/TxOriginWallet.sol#L12",
+        "id": "7884e1f96c7ae44ea5803e04a9ec7c29be54d2ab4a0f19ab515b588cf9874c99",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transferTo",
+            "source_mapping": {
+              "start": 237,
+              "length": 226,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "TxOriginWallet",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 383,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "transferTo(address,uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 376,
+              "length": 40,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                14
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferTo",
+                "source_mapping": {
+                  "start": 237,
+                  "length": 226,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "TxOriginWallet",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 383,
+                      "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                      "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferTo(address,uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in TxOriginWallet.transferTo(address,uint256) (src/vulnerable/TxOriginWallet.sol#12-16):\n\t- (ok,None) = to.call{value: amount}() (src/vulnerable/TxOriginWallet.sol#14)\n",
+        "markdown": "Low level call in [TxOriginWallet.transferTo(address,uint256)](src/vulnerable/TxOriginWallet.sol#L12-L16):\n\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/TxOriginWallet.sol#L14)\n",
+        "first_markdown_element": "src/vulnerable/TxOriginWallet.sol#L12-L16",
+        "id": "92fcd98a571716df0d2c5d30f3463a108e4ea80c0a57ed70700791885300ad64",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "owner",
+            "source_mapping": {
+              "start": 147,
+              "length": 20,
+              "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+              "filename_short": "src/vulnerable/TxOriginWallet.sol",
+              "is_dependency": false,
+              "lines": [
+                6
+              ],
+              "starting_column": 5,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "TxOriginWallet",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 383,
+                  "filename_relative": "src/vulnerable/TxOriginWallet.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/TxOriginWallet.sol",
+                  "filename_short": "src/vulnerable/TxOriginWallet.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              }
+            }
+          }
+        ],
+        "description": "TxOriginWallet.owner (src/vulnerable/TxOriginWallet.sol#6) should be immutable \n",
+        "markdown": "[TxOriginWallet.owner](src/vulnerable/TxOriginWallet.sol#L6) should be immutable \n",
+        "first_markdown_element": "src/vulnerable/TxOriginWallet.sol#L6",
+        "id": "c3a64df70b655ff72963fb4ebfae18068c8f74978cfe77328ccdab8577807e82",
+        "check": "immutable-states",
+        "impact": "Optimization",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable"
+      }
+    ]
+  }
+}

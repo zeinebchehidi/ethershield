@@ -1,0 +1,29 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/dell/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/fixed/TxOriginWalletFixed.sol' running (wd: /home/dell/ethershield)
+INFO:Detectors:
+Detector: pragma
+2 different versions of Solidity are used:
+	- Version constraint ^0.8.20 is used by:
+		-^0.8.20 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4)
+		-^0.8.20 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4)
+	- Version constraint 0.8.24 is used by:
+		-0.8.24 (src/fixed/TxOriginWalletFixed.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Detector: solc-version
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4)
+	- ^0.8.20 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in TxOriginWalletFixed.transferTo(address,uint256) (src/fixed/TxOriginWalletFixed.sol#10-14):
+	- (ok,None) = to.call{value: amount}() (src/fixed/TxOriginWalletFixed.sol#12)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/fixed/TxOriginWalletFixed.sol analyzed (3 contracts with 102 detectors), 3 result(s) found
