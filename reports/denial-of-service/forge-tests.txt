@@ -1,0 +1,48 @@
+No files changed, compilation skipped
+Warning: Failure from "/home/user/ethershield/cache/invariant/failures/DenialOfServiceInvariantTest/invariants/invariant_AuctionBalanceMatchesAccounting" file was ignored because invariant test settings have changed: removed target contracts: src/fixed/SecureAuction.sol:SecureAuction, target selectors changed
+
+Ran 5 tests for test/DenialOfService.t.sol:DenialOfServiceExploitTest
+[PASS] testFuzz_Exploit_NoOneCanOutbid(uint96) (runs: 256, μ: 346851, ~: 346851)
+[PASS] test_Exploit_AirdropBlockedByRevertingParticipant() (gas: 547531)
+[PASS] test_Exploit_AirdropGasExhaustion() (gas: 83629624)
+[PASS] test_Exploit_AirdropGasGrowsLinearly() (gas: 14143184)
+Logs:
+  gas distribute() avec 20 participants: 221410
+  gas distribute() avec 200 participants: 1926550
+
+[PASS] test_Exploit_AuctionBlockedByRevertingBidder() (gas: 425205)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 117.99ms (220.94ms CPU time)
+
+Ran 13 tests for test/DenialOfService.t.sol:DenialOfServiceFixedTest
+[PASS] testFuzz_Fixed_Airdrop_SharesNeverExceedFunding(uint96,uint8) (runs: 256, μ: 1543264, ~: 585786)
+[PASS] testFuzz_Fixed_Auction_AnyoneCanOutbid(uint96) (runs: 256, μ: 366914, ~: 366914)
+[PASS] test_Fixed_Airdrop_CannotClaimTwice() (gas: 334379)
+[PASS] test_Fixed_Airdrop_ClaimGasIndependentOfParticipants() (gas: 53911893)
+Logs:
+  gas claim() avec 1000 participants: 64917
+
+[PASS] test_Fixed_Airdrop_DoubleRegistrationRejected() (gas: 107026)
+[PASS] test_Fixed_Airdrop_LegitParticipantsReceiveShare() (gas: 318813)
+[PASS] test_Fixed_Airdrop_OnlyOwnerOpensClaims() (gas: 105038)
+[PASS] test_Fixed_Airdrop_RegistrationCap() (gas: 53599797)
+[PASS] test_Fixed_Airdrop_RevertingParticipantCannotBlockOthers() (gas: 688387)
+[PASS] test_Fixed_Auction_CannotWithdrawTwice() (gas: 214471)
+[PASS] test_Fixed_Auction_LowBidRejected() (gas: 118356)
+[PASS] test_Fixed_Auction_OutbidUserWithdrawsRefund() (gas: 203970)
+[PASS] test_Fixed_Auction_RevertingBidderCannotBlock() (gas: 429456)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 197.71ms (570.63ms CPU time)
+
+Ran 1 test for test/DenialOfService.t.sol:DenialOfServiceInvariantTest
+[PASS] invariant_AuctionBalanceMatchesAccounting() (runs: 256, calls: 128000, reverts: 0)
+
+╭----------------+----------+-------+---------+----------╮
+| Contract       | Selector | Calls | Reverts | Discards |
++========================================================+
+| AuctionHandler | bid      | 64055 | 0       | 0        |
+|----------------+----------+-------+---------+----------|
+| AuctionHandler | withdraw | 63945 | 0       | 0        |
+╰----------------+----------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 20.50s (20.50s CPU time)
+
+Ran 3 test suites in 20.51s (20.82s CPU time): 19 tests passed, 0 failed, 0 skipped (19 total tests)

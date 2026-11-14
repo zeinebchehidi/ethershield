@@ -1,0 +1,10 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/user/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/fixed/SecureAirdrop.sol' running (wd: /home/user/ethershield)
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in SecureAirdrop.claim() (src/fixed/SecureAirdrop.sol#52-63):
+	- (ok,None) = msg.sender.call{value: amount}() (src/fixed/SecureAirdrop.sol#60)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/fixed/SecureAirdrop.sol analyzed (3 contracts with 102 detectors), 1 result(s) found

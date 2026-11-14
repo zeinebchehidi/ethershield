@@ -49,4 +49,4 @@ forge test
 | tx.origin | ❌ | ❌ | ❌ | À faire |
 | Signature Replay | ❌ | ❌ | ❌ | À faire |
 | Front-running / MEV | ❌ | ❌ | ❌ | À faire |
-| Denial of Service | ❌ | ❌ | ❌ | À faire |
+| Denial of Service | ✅ | ✅ | ✅ | Terminé |

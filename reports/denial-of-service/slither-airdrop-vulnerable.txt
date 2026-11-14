@@ -1,0 +1,27 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/user/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/vulnerable/VulnerableAirdrop.sol' running (wd: /home/user/ethershield)
+INFO:Detectors:
+Detector: calls-loop
+VulnerableAirdrop.distribute() (src/vulnerable/VulnerableAirdrop.sol#26-41) has external calls inside a loop: (ok,None) = participants[i].call{value: share}() (src/vulnerable/VulnerableAirdrop.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+INFO:Detectors:
+Detector: solc-version
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (src/vulnerable/VulnerableAirdrop.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in VulnerableAirdrop.distribute() (src/vulnerable/VulnerableAirdrop.sol#26-41):
+	- (ok,None) = participants[i].call{value: share}() (src/vulnerable/VulnerableAirdrop.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Detector: immutable-states
+VulnerableAirdrop.owner (src/vulnerable/VulnerableAirdrop.sol#7) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:src/vulnerable/VulnerableAirdrop.sol analyzed (1 contracts with 102 detectors), 4 result(s) found

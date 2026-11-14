@@ -1,0 +1,19 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/user/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/vulnerable/VulnerableAuction.sol' running (wd: /home/user/ethershield)
+INFO:Detectors:
+Detector: solc-version
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (src/vulnerable/VulnerableAuction.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in VulnerableAuction.bid() (src/vulnerable/VulnerableAuction.sol#11-27):
+	- (ok,None) = previousBidder.call{value: previousBid}() (src/vulnerable/VulnerableAuction.sol#24)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/vulnerable/VulnerableAuction.sol analyzed (1 contracts with 102 detectors), 2 result(s) found
