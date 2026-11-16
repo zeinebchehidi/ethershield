@@ -1,0 +1,28 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/dell/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/vulnerable/SignatureReplayVault.sol' running (wd: /home/dell/ethershield)
+INFO:Detectors:
+Detector: arbitrary-send-eth
+SignatureReplayVault.withdrawWithSignature(address,uint256,bytes) (src/vulnerable/SignatureReplayVault.sol#12-27) sends eth to arbitrary user
+	Dangerous calls:
+	- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+Detector: missing-zero-check
+SignatureReplayVault.constructor(address)._signer (src/vulnerable/SignatureReplayVault.sol#8) lacks a zero-check on :
+		- signer = _signer (src/vulnerable/SignatureReplayVault.sol#9)
+SignatureReplayVault.withdrawWithSignature(address,uint256,bytes).to (src/vulnerable/SignatureReplayVault.sol#13) lacks a zero-check on :
+		- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Detector: assembly
+SignatureReplayVault._recover(bytes32,bytes) (src/vulnerable/SignatureReplayVault.sol#29-40) uses assembly
+	- INLINE ASM (src/vulnerable/SignatureReplayVault.sol#34-38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in SignatureReplayVault.withdrawWithSignature(address,uint256,bytes) (src/vulnerable/SignatureReplayVault.sol#12-27):
+	- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/vulnerable/SignatureReplayVault.sol analyzed (1 contracts with 102 detectors), 5 result(s) found
