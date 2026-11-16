@@ -1,0 +1,1071 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdrawWithSignature",
+            "source_mapping": {
+              "start": 267,
+              "length": 554,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureReplayVault",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 1159,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdrawWithSignature(address,uint256,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 734,
+              "length": 40,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawWithSignature",
+                "source_mapping": {
+                  "start": 267,
+                  "length": 554,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawWithSignature(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureReplayVault.withdrawWithSignature(address,uint256,bytes) (src/vulnerable/SignatureReplayVault.sol#12-27) sends eth to arbitrary user\n\tDangerous calls:\n\t- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)\n",
+        "markdown": "[SignatureReplayVault.withdrawWithSignature(address,uint256,bytes)](src/vulnerable/SignatureReplayVault.sol#L12-L27) sends eth to arbitrary user\n\tDangerous calls:\n\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/SignatureReplayVault.sol#L25)\n",
+        "first_markdown_element": "src/vulnerable/SignatureReplayVault.sol#L12-L27",
+        "id": "894bc49dd66ac74fffc3274032f118925f258db908d2149e90c7d568828639cc",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "_signer",
+            "source_mapping": {
+              "start": 203,
+              "length": 15,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                8
+              ],
+              "starting_column": 17,
+              "ending_column": 32
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "constructor",
+                "source_mapping": {
+                  "start": 191,
+                  "length": 70,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "constructor(address)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "signer = _signer",
+            "source_mapping": {
+              "start": 238,
+              "length": 16,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                9
+              ],
+              "starting_column": 9,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "constructor",
+                "source_mapping": {
+                  "start": 191,
+                  "length": 70,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "constructor(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureReplayVault.constructor(address)._signer (src/vulnerable/SignatureReplayVault.sol#8) lacks a zero-check on :\n\t\t- signer = _signer (src/vulnerable/SignatureReplayVault.sol#9)\n",
+        "markdown": "[SignatureReplayVault.constructor(address)._signer](src/vulnerable/SignatureReplayVault.sol#L8) lacks a zero-check on :\n\t\t- [signer = _signer](src/vulnerable/SignatureReplayVault.sol#L9)\n",
+        "first_markdown_element": "src/vulnerable/SignatureReplayVault.sol#L8",
+        "id": "f786d4af3647baa528bed1d8733a9c46e2ec4a83778adb6fe8e9c009b07c4958",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "to",
+            "source_mapping": {
+              "start": 307,
+              "length": 18,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                13
+              ],
+              "starting_column": 9,
+              "ending_column": 27
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawWithSignature",
+                "source_mapping": {
+                  "start": 267,
+                  "length": 554,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawWithSignature(address,uint256,bytes)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 734,
+              "length": 40,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawWithSignature",
+                "source_mapping": {
+                  "start": 267,
+                  "length": 554,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawWithSignature(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureReplayVault.withdrawWithSignature(address,uint256,bytes).to (src/vulnerable/SignatureReplayVault.sol#13) lacks a zero-check on :\n\t\t- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)\n",
+        "markdown": "[SignatureReplayVault.withdrawWithSignature(address,uint256,bytes).to](src/vulnerable/SignatureReplayVault.sol#L13) lacks a zero-check on :\n\t\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/SignatureReplayVault.sol#L25)\n",
+        "first_markdown_element": "src/vulnerable/SignatureReplayVault.sol#L13",
+        "id": "f893ab8eecd52b11cd1985c78f71e03fbd4e2c7dbcfddeede010f102dfaa89fc",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "_recover",
+            "source_mapping": {
+              "start": 827,
+              "length": 412,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureReplayVault",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 1159,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "_recover(bytes32,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "",
+            "source_mapping": {
+              "start": 1022,
+              "length": 173,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "starting_column": 9,
+              "ending_column": 10
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "_recover",
+                "source_mapping": {
+                  "start": 827,
+                  "length": 412,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "_recover(bytes32,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureReplayVault._recover(bytes32,bytes) (src/vulnerable/SignatureReplayVault.sol#29-40) uses assembly\n\t- INLINE ASM (src/vulnerable/SignatureReplayVault.sol#34-38)\n",
+        "markdown": "[SignatureReplayVault._recover(bytes32,bytes)](src/vulnerable/SignatureReplayVault.sol#L29-L40) uses assembly\n\t- [INLINE ASM](src/vulnerable/SignatureReplayVault.sol#L34-L38)\n",
+        "first_markdown_element": "src/vulnerable/SignatureReplayVault.sol#L29-L40",
+        "id": "39df95caee028c1b0a3d6994813a1d7426095b9640c6573c03799cf62c1e57de",
+        "check": "assembly",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdrawWithSignature",
+            "source_mapping": {
+              "start": 267,
+              "length": 554,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureReplayVault",
+                "source_mapping": {
+                  "start": 117,
+                  "length": 1159,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdrawWithSignature(address,uint256,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = to.call{value: amount}()",
+            "source_mapping": {
+              "start": 734,
+              "length": 40,
+              "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+              "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+              "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 9,
+              "ending_column": 49
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawWithSignature",
+                "source_mapping": {
+                  "start": 267,
+                  "length": 554,
+                  "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                  "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                  "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureReplayVault",
+                    "source_mapping": {
+                      "start": 117,
+                      "length": 1159,
+                      "filename_relative": "src/vulnerable/SignatureReplayVault.sol",
+                      "filename_absolute": "/home/dell/ethershield/src/vulnerable/SignatureReplayVault.sol",
+                      "filename_short": "src/vulnerable/SignatureReplayVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawWithSignature(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in SignatureReplayVault.withdrawWithSignature(address,uint256,bytes) (src/vulnerable/SignatureReplayVault.sol#12-27):\n\t- (ok,None) = to.call{value: amount}() (src/vulnerable/SignatureReplayVault.sol#25)\n",
+        "markdown": "Low level call in [SignatureReplayVault.withdrawWithSignature(address,uint256,bytes)](src/vulnerable/SignatureReplayVault.sol#L12-L27):\n\t- [(ok,None) = to.call{value: amount}()](src/vulnerable/SignatureReplayVault.sol#L25)\n",
+        "first_markdown_element": "src/vulnerable/SignatureReplayVault.sol#L12-L27",
+        "id": "d123b246620b142734622a65af003bc9ad826b5ef7e02285d6e4b7b0144af464",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      }
+    ]
+  }
+}

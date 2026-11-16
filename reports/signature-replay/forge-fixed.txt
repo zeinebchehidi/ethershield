@@ -1,0 +1,14 @@
+Compiler run successful!
+
+Ran 8 tests for test/fixed/SignatureReplayFixed.t.sol:SignatureReplayFixedTest
+[PASS] test_CrossContractReplayBlocked() (gas: 54610)
+[PASS] test_ExpiredSignatureRejected() (gas: 45858)
+[PASS] test_LegitWithdrawWorks() (gas: 110314)
+[PASS] test_MalleableSignatureRejected() (gas: 46846)
+[PASS] test_ProtectionHolds_ReplayBlocked() (gas: 141822)
+[PASS] test_TamperedAmountRejected() (gas: 50884)
+[PASS] test_WrongSignerRejected() (gas: 51006)
+[PASS] test_ZeroSignerRejected() (gas: 4861)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 32.12ms (88.27ms CPU time)
+
+Ran 1 test suite in 100.63ms (32.12ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

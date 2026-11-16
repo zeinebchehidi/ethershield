@@ -1,0 +1,30 @@
+Multiple frameworks detected: Foundry, solc, Solc-json. Using Foundry (highest priority). Use --compile-force-framework to override.
+'forge clean' running (wd: /home/dell/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never src/fixed/SignatureReplayVaultFixed.sol' running (wd: /home/dell/ethershield)
+INFO:Detectors:
+Detector: arbitrary-send-eth
+SignatureReplayVaultFixed.withdrawWithSignature(address,uint256,uint256,bytes) (src/fixed/SignatureReplayVaultFixed.sol#22-43) sends eth to arbitrary user
+	Dangerous calls:
+	- (ok,None) = to.call{value: amount}() (src/fixed/SignatureReplayVaultFixed.sol#40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+Detector: reentrancy-events
+Reentrancy in SignatureReplayVaultFixed.withdrawWithSignature(address,uint256,uint256,bytes) (src/fixed/SignatureReplayVaultFixed.sol#22-43):
+	External calls:
+	- (ok,None) = to.call{value: amount}() (src/fixed/SignatureReplayVaultFixed.sol#40)
+	Event emitted after the call(s):
+	- Withdrawn(to,amount,currentNonce) (src/fixed/SignatureReplayVaultFixed.sol#42)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+INFO:Detectors:
+Detector: timestamp
+SignatureReplayVaultFixed.withdrawWithSignature(address,uint256,uint256,bytes) (src/fixed/SignatureReplayVaultFixed.sol#22-43) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp <= deadline,signature expired) (src/fixed/SignatureReplayVaultFixed.sol#29)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in SignatureReplayVaultFixed.withdrawWithSignature(address,uint256,uint256,bytes) (src/fixed/SignatureReplayVaultFixed.sol#22-43):
+	- (ok,None) = to.call{value: amount}() (src/fixed/SignatureReplayVaultFixed.sol#40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Slither:src/fixed/SignatureReplayVaultFixed.sol analyzed (13 contracts with 102 detectors), 4 result(s) found
