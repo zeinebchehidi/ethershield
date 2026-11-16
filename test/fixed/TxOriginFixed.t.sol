@@ -27,16 +27,11 @@ contract TxOriginFixedTest is Test {
     // 1. PROTECTION : la meme attaque de phishing est maintenant bloquee
     function test_ProtectionHolds_PhishingBlocked() public {
         vm.prank(victim, victim); // msg.sender = victim ET tx.origin = victim
-        vm.expectRevert(
-            abi.encodeWithSelector(
-                Ownable.OwnableUnauthorizedAccount.selector,
-                address(attackerContract)
-            )
-        );
+        vm.expectRevert(abi.encodeWithSelector(Ownable.OwnableUnauthorizedAccount.selector, address(attackerContract)));
         attackerContract.claimAirdrop();
 
         assertEq(address(wallet).balance, 5 ether); // fonds intacts
-        assertEq(attacker.balance, 1 ether);        // l'attaquant n'a rien gagne
+        assertEq(attacker.balance, 1 ether); // l'attaquant n'a rien gagne
     }
 
     // 2. NON-REGRESSION : le proprietaire peut toujours utiliser son wallet

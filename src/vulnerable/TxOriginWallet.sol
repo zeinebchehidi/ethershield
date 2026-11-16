@@ -11,7 +11,7 @@ contract TxOriginWallet {
 
     function transferTo(address payable to, uint256 amount) external {
         require(tx.origin == owner, "not owner"); // FAILLE ICI
-        (bool ok, ) = to.call{value: amount}("");
+        (bool ok,) = to.call{value: amount}("");
         require(ok, "transfer failed");
     }
 

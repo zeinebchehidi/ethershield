@@ -9,7 +9,7 @@ contract TxOriginWalletFixed is Ownable {
 
     function transferTo(address payable to, uint256 amount) external onlyOwner {
         require(to != address(0), "zero address");
-        (bool ok, ) = to.call{value: amount}("");
+        (bool ok,) = to.call{value: amount}("");
         require(ok, "transfer failed");
     }
 
